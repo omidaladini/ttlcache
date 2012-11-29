@@ -15,7 +15,7 @@ class TTLCache[Key, Value] {
   }
 
   def tick(currentEpoch: Long) : Unit
-  = ttlTrain = ttlTrain.dropWhile(_._1 < currentEpoch)
+  = ttlTrain = ttlTrain dropWhile(_._1 < currentEpoch)
 }
 
 
@@ -28,13 +28,13 @@ object Main extends App {
   while(true) {
     //Never run out of memory!
     println("Cache size:" + c.cache.size + " referenced:" + c.ttlTrain.size)
-    val currentEpoch = System.currentTimeMillis
+    val currentEpoch = System currentTimeMillis
 
     //Add ramdom stuff
     val ttl = currentEpoch + rndInt(2000)
-    c.insert(rndInt, rndInt, ttl)
+    c insert(rndInt, rndInt, ttl)
 
     //Move the reference forward and let GC free up the cache
-    c.tick(currentEpoch)
+    c tick currentEpoch
   }
 }
