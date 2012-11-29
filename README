@@ -1,4 +1,3 @@
-A quick try to implement a cache that supports TTL on its elements and frees up the memory by
-releasing strong references to cache elements.
+A quick try to implement a cache that supports TTL on its elements and frees up the memory by releasing strong references to cache elements.
 
 The simple app shows that JVM doesn't run out of memory!
