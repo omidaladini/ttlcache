@@ -15,7 +15,7 @@ class TTLCache[Key, Value] {
   }
 
   def tick(currentEpoch: Long) : Unit
-  = ttlTrain = ttlTrain.span(_._1 > currentEpoch)._1
+  = ttlTrain = ttlTrain.dropWhile(_._1 < currentEpoch)
 }
 
 
